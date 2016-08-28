@@ -18,6 +18,10 @@ public class Queue<T> {
         list.add(item);
     }
 
+    public T top() {
+        return list.top();
+    }
+
     void remove() {
         list.remove();
     }

@@ -6,6 +6,7 @@ package queue;
 
 public class Node<T> extends AbstractNode {
     T data;
+    AbstractNode next = new LastNode<T>();
 
     public Node(T newData) {
         data = newData;
@@ -15,8 +16,11 @@ public class Node<T> extends AbstractNode {
         return data;
     }
 
-    public Node getNext() {
+    public AbstractNode getNext() {
         return next;
     }
 
+    public int size(int size) {
+        return next.size(size + 1);
+    }
 }

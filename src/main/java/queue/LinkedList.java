@@ -4,31 +4,30 @@ package queue;
  * Created by andres on 8/27/16.
  */
 public class LinkedList<T> {
-    AbstractNode<T> first = new NullNode();
-    AbstractNode<T> last;
-    int size = 0;
+    AbstractNode<T> first = new FirstNode<T>();
+    AbstractNode<T> last = first;
 
     public LinkedList() {
-        last = first;
+        last.setNext(new LastNode<T>());
     }
 
     public boolean isEmpty() {
-        return (size == 0);
+        return (getSize() == 0);
     }
 
     int getSize() {
-        return size;
+        return first.size(0);
+    }
+
+    public T top() {
+        return last.getData();
     }
 
     void add(T item) {
-        Node<T> node = new Node<T>(item);
-        last.setNext(node);
-        last = node;
-        size += 1;
+        last = last.setNext(new Node<T>(item));
     }
 
     void remove() {
-        last = last.getNext();
-        size -= 1;
+        first.setNext(first.getNext().getNext());
     }
 }

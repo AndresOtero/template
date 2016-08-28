@@ -4,14 +4,21 @@ package queue;
  * Created by andres on 8/27/16.
  */
 public abstract class AbstractNode<T> {
-    Node next;
+    AbstractNode next;
 
-    public abstract T getData();
+    public T getData() {
+        throw new AssertionError();
+    }
 
-    public abstract AbstractNode getNext();
+    public AbstractNode getNext() {
+        return next;
+    }
 
-    public void setNext(Node nextNode) {
+    public abstract int size(int size);
+
+    public AbstractNode setNext(AbstractNode nextNode) {
         next = nextNode;
+        return this.getNext();
     }
 
 }
