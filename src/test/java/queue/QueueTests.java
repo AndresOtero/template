@@ -72,9 +72,37 @@ public class QueueTests {
     public void notEmptyQueueTopAssertionError() {
         Queue<Integer> queue = queueWithAnInteger();
         assertFalse(queue.isEmpty());
-        queue.top();
+        queue.remove();
         assertTrue(queue.isEmpty());
         queue.top();
+    }
+
+    @Test
+    public void queueStoresMoreThanOneValue() {
+        Queue<Integer> queue = queueWithAnInteger();
+        assertFalse(queue.isEmpty());
+        Integer int2 = new Integer(3);
+        queue.add(int2);
+        Integer int1 = queue.top();
+        assertTrue(int1.intValue() == 2);
+        assertTrue(queue.size() == 2);
+        queue.remove();
+        assertFalse(queue.isEmpty());
+        int1 = queue.top();
+        assertTrue(int1.intValue() == 3);
+
+    }
+    @Test
+    public void queueSize() {
+        Queue<Integer> queue = queueWithAnInteger();
+        assertTrue(queue.size() == 1);
+        Integer int2 = new Integer(3);
+        queue.add(int2);
+        assertTrue(queue.size() == 2);
+        queue.remove();
+        queue.remove();
+        assertTrue(queue.size() == 0);
+
     }
 }
 

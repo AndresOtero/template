@@ -4,7 +4,7 @@ package queue;
  * Created by andres on 8/27/16.
  */
 public abstract class AbstractNode<T> {
-    AbstractNode next;
+    AbstractNode<T> next;
 
     public T getData() {
         throw new AssertionError();
@@ -17,8 +17,7 @@ public abstract class AbstractNode<T> {
     public abstract int size(int size);
 
     public AbstractNode setNext(AbstractNode nextNode) {
-        next = nextNode;
-        return this.getNext();
+        return this.next = nextNode;
     }
 
 }

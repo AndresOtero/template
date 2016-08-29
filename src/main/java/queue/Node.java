@@ -20,6 +20,10 @@ public class Node<T> extends AbstractNode {
         return next;
     }
 
+    public AbstractNode setNext(AbstractNode nextNode) {
+        return next = nextNode;
+    }
+
     public int size(int size) {
         return next.size(size + 1);
     }

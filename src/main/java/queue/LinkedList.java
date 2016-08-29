@@ -4,7 +4,7 @@ package queue;
  * Created by andres on 8/27/16.
  */
 public class LinkedList<T> {
-    AbstractNode<T> first = new FirstNode<T>();
+    FirstNode<T> first = new FirstNode<T>();
     AbstractNode<T> last = first;
 
     public LinkedList() {
@@ -20,7 +20,7 @@ public class LinkedList<T> {
     }
 
     public T top() {
-        return last.getData();
+        return first.getData();
     }
 
     void add(T item) {
