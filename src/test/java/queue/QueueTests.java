@@ -92,6 +92,7 @@ public class QueueTests {
         assertTrue(int1.intValue() == 3);
 
     }
+
     @Test
     public void queueSize() {
         Queue<Integer> queue = queueWithAnInteger();
